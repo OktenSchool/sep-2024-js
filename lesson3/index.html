@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // //         0    1   2   3   4  5    6   7
+    // let arr = [11, 22, 33, 44, 55, 66, 77, 888]
+    // //         0   1
+    // let arr2 = [empty, 22,empty , 44];
+    // for (let i = 0; i < arr.length; i++) {
+    //     let a = arr[i] % 2
+    //     if (!a) {
+    //         arr2[1] = arr[1];
+    //         /*arr2.push(arr[i])*/
+    //     }
+    // }
+    // console.log(arr2)
+    //
+    //
+    // let i = 0;
+    // console.log('asd' + i + 'asdasd');
+    //
+    //
+    // console.log(arr[10500]);
+    //
+    // let arr = [];
+    // arr[1005000] = 'okten';
+    // console.log(arr);
+    // console.log(arr[100400]);
+
+
+    // let origin = [11, 22, 33, 44, 55, 66,
+    //     77, 888];
+    //
+    // let filterArr = [];
+    //
+    // for (let i = 0; i < origin.length; i++) {
+    //     if (!(origin[i] % 2 === 0)) {
+    //         // filterArr.push(origin[i]);
+    //         filterArr[filterArr.length] = origin[i];
+    //     }
+    // }
+
+
+    // let temps = [
+    //     {day: 'mon', temps: [{value: 17, part: 'mor'}, {value: -1, part: 'noon'}, {value: 18, part: 'even'}]},
+    //     {day: 'tue', temps: [{value: 17, part: 'mor'}, {value: -1, part: 'noon'}, {value: 18, part: 'even'}]},
+    //     {day: 'thu', temps: [{value: 17, part: 'mor'}, {value: -1, part: 'noon'}, {value: 18, part: 'even'}]},
+    //     {day: 'wed', temps: [{value: 17, part: 'mor'}, {value: -1, part: 'noon'}, {value: 18, part: 'even'}]},
+    //     {day: 'fri', temps: [{value: 17, part: 'mor'}, {value: -1, part: 'noon'}, {value: 18, part: 'even'}]},
+    //     {day: 'sat', temps: [{value: 17, part: 'mor'}, {value: -1, part: 'noon'}, {value: 18, part: 'even'}]},
+    //     {day: 'sun', temps: [{value: 17, part: 'mor'}, {value: -1, part: 'noon'}, {value: 18, part: 'even'}]}
+    // ];
+    //
+    // for (const dayOfWeek of temps) {
+    //     document.write(`<div>`);
+    //     document.write(dayOfWeek.day);
+    //     let temperatures = dayOfWeek.temps;
+    //     for (const temperature of temperatures) {
+    //         document.write(' ' + temperature.part + '  ' + temperature.value);
+    //     }
+    //     document.write(`</div>`);
+    // }
+
+
+    let temps = [
+        {day: 'mon', morning: {value: 17}, noon: {value: -1}, evening: {value: 18}},
+        {day: 'tue', morning: {value: 17}, noon: {value: -1}, evening: {value: 18}},
+        {day: 'wed', morning: {value: 17}, noon: {value: -1}, evening: {value: 18}},
+        {day: 'thu', morning: {value: 17}, noon: {value: -1}, evening: {value: 18}},
+        {day: 'fri', morning: {value: 17}, noon: {value: -1}, evening: {value: 18}},
+        {day: 'sat', morning: {value: 17}, noon: {value: -1}, evening: {value: 18}},
+        {day: 'sun', morning: {value: 17}, noon: {value: -1}, evening: {value: 18}}
+    ];
+
+    for (const dayOfWeek of temps) {
+        let accumulatorStr = '';
+        for (const key in dayOfWeek) {
+            accumulatorStr = accumulatorStr + dayOfWeek[key]
+        }
+        document.write(`<div>${accumulatorStr}</div>`);
+
+
+    }
+
+
+</script>
+
+</body>
+</html>
