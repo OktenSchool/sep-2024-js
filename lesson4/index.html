@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+<!--<li>Asd</li>-->
+
+
+<script>
+    // // "Чому при виконанні функції:
+    // //
+    // function circle(a) {
+    //     return 3.14 * a * a;
+    // }
+    //
+    // let b = circle(3);
+    // console.log(b);
+    // //
+    // // виводить в консоль відповідь (28.259999999999998), хоча мусить бути (28.26)?"
+    // console.log(0.1 + 0.2);
+
+
+    // function a(d, c) {
+    //     document.write(`<ul>`);
+    //     for (let b = 0; b < c; b++) {
+    //         document.write(`<li>${d}</li>`);
+    //     }
+    //     document.write(`</ul>`);
+    // }
+    //
+    // a('створити три ліжка з цим наповненням', 3);
+    //
+    //
+    // // Я розумію, що 'd' та 'c' були створені в ході написання цього коду,
+    // // але в який саме момент? В якій частині коду?
+    // // Тому що особисто я написав тут лише 'b', що дорівноює нулю і тільки це я можу зараз сказати,
+    // // де саме воно створено в коді."
+
+
+    // // поясніть будь ласка ще раз різницю  між конкатенацією та інтерполяцією, та різницю  між лампаки '...' та `.....`"
+    // console.log('asddsa' + 'adsasd');
+    // let x = 'hello';
+    // console.log(`${x}`);
+    // console.log(`dasfsdf${x}` + 'asdadsad');
+    //
+    // console.log('\'hello\'');
+
+    // результати обчислення формул у функціях
+    // з довгим значенням після коми, зменьшити їх тільки використовуючи toFixed(2) чи є ще якісь методи?
+
+    // "Ментор написав, що неправильно, я не розумію чому? minArr (a), де "
+    // "а"
+    // " і є цей масив чисел. Умова завдання виконується, найменше число виводиться туди, куди я  скажу. В даному випадку в консоль:
+
+    // створити функцію яка повертає найменьше число з масиву
+    //
+    // let a = [10, 25, -2, 7, -30];
+    //
+    // function minArr(array) {
+    //     let min = array[0];
+    //     for (const item of array) {
+    //         if (item < min) {
+    //             min = item
+    //         }
+    //     }
+    //     return min;
+    // }
+    //
+    // console.log(minArr(a));
+
+
+    // "#bovDJDTIjt
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+    //     Чому ми у цьому завданні використовуємо цикл for of а не цикл for in.
+    //     Ми ж тут перебираємо об’єкти, а цикл  for in як раз і призначений для перебирання об’єктів. Виходить що цикл  for of теж  призначений для перебирання об’єктів? Чи я щось неправильно зрозумів?"
+    // for (const arrayKey in [11,22,33]) {
+    //     console.log(arrayKey);
+    // }
+    // " #kpsbSQCt2Lf
+    // створити функцію swap(arr,index1,index2).
+    // Функція міняє місцями значення у відповідних індексах. Поясніть, будь ласка, ще раз це завдання"
+
+
+    function swap(arr, indexToSwap1, indexToSwap2) {
+        let i1 = arr[indexToSwap1];
+        let i2 = arr[indexToSwap2];
+        arr[indexToSwap1] = i2;
+        arr[indexToSwap2] = i1;
+        return arr;
+    }
+
+    swap([11, 22, 33], 1, 2); //=> [11,33,22]
+
+
+    // "#bovDJDTIjt
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+    //     Чому ми у цьому завданні використовуємо цикл for of а не цикл for in. Ми ж тут перебираємо об’єкти, а цикл  for in як раз і призначений для перебирання об’єктів. Виходить що цикл  for of теж  призначений для перебирання об’єктів? Чи я щось неправильно зрозумів?"
+
+    // let arr = [{}, {}, {}, {},];
+    // for (const object of arr) {
+    //     for (const objectKey in object) {
+    //
+    //     }
+    // }
+
+    // function objectExpolorer(obj) {
+    //     for (const key in obj) {
+    //         if (typeof obj[key] === 'object') {
+    //             objectExpolorer(obj[key]);
+    //         } else {
+    //             console.log(obj[key]);
+    //         }
+    //     }
+    // }
+    //
+    //
+    // let obj = {
+    //     name: 'vasya', age: 32, wife: {
+    //         name: 'anna',
+    //         surname: 'shevchecnko',
+    //         skill: {
+    //             title: 'java',
+    //             exp: 10
+    //         }
+    //     }
+    // };
+    // objectExpolorer(obj);
+
+
+    // У функції add(a, b),
+    // коли використовується return a + b;
+    // куди саме повертається значення a + b? Я розумію, що функція завершує своє виконання, але хотілося б уточнити, як саме це значення передається та використовується у місці виклику функції?
+    // function sum(a, b) {
+    //     return a + b;
+    // }
+    //
+    // let result = sum(3, 4);
+
+
+    function fillArr(mas) {
+        mas[0] = 11;
+        mas[1] = 22;
+        return mas;
+    }
+
+
+    let arr = [];
+
+    let masX = fillArr(arr);
+    console.log(arr);
+    console.log(masX);
+    console.log(masX === arr);
+
+
+</script>
+
+</body>
+</html>
