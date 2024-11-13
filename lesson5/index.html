@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // "Як можна в такому коді з використанням стрілочної функції повернути значення sumNumbers без використання функції return?
+    // Щоб я пізніше зміг вибрати куди мені це виводити чи в console.log(sum(arrayOfNumbers)) чи в document.write(sum(arrayOfNumbers)).
+    // Тому що ви пояснювали, що в стрілочних функціях return прошитий за замовчуванням, а в мене щось в такому коді не виходить без нього суму вивести:
+    //
+    // let arrayOfNumbers = [1, 2, 10, 5];
+    //
+    // let sum = (arrayNumbers) => {
+    //     let sumNumbers = 0;
+    //     for (let item of arrayNumbers) {
+    //         sumNumbers = item + sumNumbers;
+    //     }
+    //     return sumNumbers;
+    // }
+    //
+    // console.log(sum(arrayOfNumbers));
+    //
+    //
+    // // const asd = (a, b, c) => a + b + c;
+    // const asd = (a, b, c) => {
+    //     if (typeof a === 'number') {
+    //         return a + b + c;
+    //     }
+    // };
+
+
+    // "Ви казали, що при замиканні неможливо змінити данні,
+    // але ось код (значення змінюються, я просто переписав заново через агрументи функції повторним зверненням):
+
+    // let user = {};
+    //
+    // user.asd = 'asdsad';
+    // delete user.asd;
+    // user.age = -132;
+
+
+    // function userBuilder(name, age) {
+    //     let user = {name, age};
+    //     return {
+    //         getName() {
+    //             return user.name;
+    //         },
+    //         getAge() {
+    //             return user.age;
+    //         },
+    //     }
+    // }
+    //
+    //
+    // let builder = userBuilder('Okten', 12); /*%$@%TTU^%&*/
+    // console.log(builder.getName());
+    // console.log(builder.getAge());
+    //
+    //
+    // builder = userBuilder('school', 89); /*64654^%87t8uGIUT8*/
+    // console.log(builder.getName());
+    // console.log(builder.getAge());
+
+    // "Можна будь ласка це пояснити, що сьогодні в головному чаті написали?
+    //
+    // Array - це клас, класи пишуть з великої літери. коли треба викликати метод класу (наприклад isArray), то ми звертаємося до класу і його методу Array.isArray(вставляємо наш масив як параметр)
+    //
+    // Не до кінця зрозуміло, коли саме і чому з великої літери."
+
+
+    // "1. Чи є варіант більш простого оверлоаду функцій ніж через іф елс к-ть аргументів?
+
+    // 2. Так і не найшов графік якого варто притримуватись, на якому зараз занняті маю бути? 5?"
+
+    // for (let x of users) {
+    //     console.log(x);
+    // }
+    //
+    // for(let dog of dogs){}
+
+    /*чому тут показує помилку.я не правильно виконую?а коли пишу РІ то функція працює..*///
+    // let kolaSquare=( PI, r)=> Math.PI*r*r; console.log(kolaSquare(3.14,10,10))//як правильно використовувати .
+
+
+</script>
+<script>
+    // debugger;
+    // let a = 3;
+    // let b = 5;
+    // let c = 4;
+    // if (a < b && (b > c || a > c)) {
+    //     console.log(b);
+    // }
+
+    // console.log(true && true);//true
+    // console.log(true && false);//false
+    // console.log(true || false);//true
+</script>
+
+<script>
+
+
+    // "Functions 5 part 2 — задача 5.7 - #0Kxco1edSN (використовувати стрілочні ф-ції)
+    //  створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)--> ф-ція спрацювала без return і помилки не було.
+    //     Якщо стрілкова ф-ція написана не в один рядок а за доп. Фігурних дужок, то потрібно вже прописувати return у тілі ф-ції, якщо ж стрілкова ф-ція написана в 1 стрічку без фігурних дужок — тоді return вже є ʼпід капотомʼ. Чому завдання 5.7 спрацьовує без return? Хоча це стрілкова ф-ція не в одну строку."
+
+
+    // const asd = () => {
+    //     document.write('sadas');
+    //     document.write('sadas');
+    //     document.write('sadas');
+    //     document.write('sadas');
+    // };
+
+
+    // І таке питання щоб прояснити/закріпити:
+    // ми викликаємо таким способом console.log(builder); якщо в середині  builder повертається через return — об’єкт. builder.foo()
+
+    // А якщо   в середині  builder повертається через return — ф-ція , тоді виклик буде таким: console.log(builder()); Все вірно?
+</script>
+
+</body>
+</html>
