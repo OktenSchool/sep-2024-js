@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // "Я зовсім не зрозумів що тут відбувається=)
+    // 1. Що це ми таке зробили? Це типу функція, але не функція.
+    // Поясніть будь ласка детальніше, я може десь упустив, не пам'ятаю що б в якомусь із уроків ми так робили. Якщо робили, то ткніть носом будь ласка, який урок мені потрібно передивитись.
+    //
+    // 2. Чому дужка стоїть після фігурної дужки?
+    //
+    //     Посилання на скрін https://ibb.co/B2GH3PM
+    //
+    //     Посилання на код з відео у відповідному рядку форми."
+    //
+    // let filteredArray = [11,22].filter(value => value);
+    // x = [11,22]
+    // [11, 22]
+    //     .filter(value => value) // []
+    //     .sort((a, b) => a - b) // []
+    //     .forEach(value => console.log(value)); // undeined
+    //
+    //
+    // let users = [
+    //     {name: 'vasya', age: 31, status: false},
+    //     {name: 'petya', age: 30, status: true},
+    //     {name: 'kolya', age: 29, status: true},
+    //     {name: 'olya', age: 28, status: false},
+    //     {name: 'max', age: 30, status: true},
+    //     {name: 'anya', age: 31, status: false},
+    //     {name: 'oleg', age: 28, status: false},
+    //     {name: 'andrey', age: 29, status: true},
+    //     {name: 'masha', age: 30, status: true},
+    //     {name: 'olya', age: 31, status: false},
+    //     {name: 'max', age: 31, status: true}
+    // ];
+    //
+    // // users
+    // //     .filter(value => value.age > 29)
+    // //     .sort((a, b) => b.age - a.age)
+    // //     .map(value => {
+    // //         return {age: value.age};
+    // //     })
+    // //     .forEach(console.log);
+    //
+    // // let originNumbers = [11, -22, 33];
+    // // let numbers = originNumbers.sort((a, b) => a - b);
+    // // console.log(numbers === originNumbers);
+    //
+    //
+    // let map = users.map((user, index) => {
+    //
+    //     let newUser = {name: user.name, age: user.age, status: user.status, id: index + 1}
+    //     return newUser;
+    //
+    // });
+    //
+    // console.log(map === users); // false
+    // console.log(users);
+
+
+    // "завдання було:    написати пошук всіх об'єктів, в яких в modules є docker
+    //
+    // у відповідях ви згадували що можна перебрати массив за допомогою find, але ж массив там з примітивів типу стрінга
+    // хіба метод find працює з примітивними типами данних ?
+    //     намагався знайти docker через find виводило пустий массив "
+
+
+    // let users = [
+    //     {name: 'vasya', age: 31, status: false},
+    //     {name: 'petya', age: 30, status: true},
+    //     {name: 'kolya', age: 29, status: true},
+    //     {name: 'olya', age: 28, status: false},
+    //     {name: 'max', age: 30, status: true},
+    //     {name: 'anya', age: 31, status: false},
+    //     {name: 'oleg', age: 28, status: false},
+    //     {name: 'andrey', age: 29, status: true},
+    //     {name: 'masha', age: 30, status: true},
+    //     {name: 'olya', age: 31, status: false},
+    //     {name: 'max', age: 31, status: true}
+    // ];
+    // console.log(users);
+    // let filter = users.filter(users => users.status);
+    // console.log(filter);
+
+    // let sort = users.sort((a, b) => a.age - b.age);
+    // console.log(sort);
+
+
+    // let filter = users
+    //     .filter(users => users.status)
+    //     .sort((a, b) => a.age - b.age);
+    //
+    // console.log(filter);
+
+
+    // "Завдання  - #Rbr5kEQ
+    //
+    // Мій код:
+    //
+    // let numArr = [10, 8, -7, 55, 987, -1011, 0, 1050, 0];
+    //
+    //
+    //
+    // let start = new Date().getTime();
+    // console.log(start);
+    // let strArr = numArr.map(item => item.toString());
+    // let end = new Date().getTime();
+    // console.log(end);
+    // console.log(start - end);
+    //
+    // Що краще використовувати toString чи просто додавати стрінгу і як взагалі визначати який підхід у певній ситуації застосовувати, це стосується не лише даної ситуації, а в цілому, адже майже завжди є декілька способів вирішення того чи іншого завдання.  Завжди здається, що використовую не правильні підходи і можна краще написати"
+
+    // "#0b89BkYZwu- Є ""брудна"" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
+    //
+    // в цьому завданні спочатку подумав що можно якось перебрати стрінгу як массив через цикл, в циклі вказати умову if (item !== ' '),що б перевірити чи це пуста стрінга, і якщо вона не пуста то вивести її в змінну
+    //
+    // питання, так взагалі можливо здійснити перевірку ?
+    //     та якщо так, то як в змінну після перевірки додати елемент, як записати дію додавання нового елемента в змінну ?
+    //     щось накштал if (item !== ' '){ variable + item} ?"
+
+    // 1. не розумію як працює сорт. вписуємо два аргументи. і якщо один більше іншого, то.. чи якщо відняти вік одного від іншого, то..  а якщо ми не знаємо в кого більше вік чи прізвище, чи якщо там дані наприклад весь час змінюються? тобто як знати що від чого віднімати, що з чим порівнювати?  2. не зрозуміла за застосовування індекс оф і чар ет разом 3. не сильно розумію різницю між argoments s rest arguments 4. покажіть приклади де в фор ич і фільтр треба передвати третій аргумент
+
+
+    // let nazafd = '';
+    // for (const s of str) {
+    //     nazafd+=s
+    //
+    // }
+
+    let str = 'asd';
+    str.toLowerCase(); // asd
+    str.toUpperCase(); // ASD
+    console.log(str);// asd
+
+    // function sad(a) {
+    //     a;
+    // }
+
+
+</script>
+
+</body>
+</html>
