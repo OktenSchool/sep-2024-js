@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    // "Запитання до Task 6
+    // #vV9a6584I5
+    // ось код дз, тут все працює коли ми звертаємось до одного об'єкти car (оголощуємо одну змінну car),
+    // але як нам викликати функції з конструктора функцій, якщо в нас не один об'єкт а масив об'єктів
+    // Масив в кінці
+    //
+    // function Car(model, producer, graduationYear, maximumSpeed, enginVolume) {
+    //     this.model = model;
+    //     this.producer = producer;
+    //     this.graduationYear = graduationYear;
+    //     this.maximumSpeed = maximumSpeed;
+    //     this.enginVolume = enginVolume;
+    //     this.drive = function () {
+    //         console.log(`їдемо зі швидкістю ${this.maximumSpeed} кілометрів на годину`)
+    //     };
+    //     this.info = function () {
+    //         for (const key in this) {
+    //             console.log(key, this[key])
+    //         }
+    //     };
+    //     this.increaseMaxSpeed = function (newSpeed) {
+    //         if (newSpeed > 0)
+    //             this.maximumSpeed += newSpeed;
+    //     };
+    //     this.changeYear = function (newValue) {
+    //         if (newValue > 1900)
+    //             this.changeYear = newValue;
+    //     };
+    //     this.addDriver = function (driver) {
+    //         if (driver)
+    //             this.addDriver = driver
+    //     }
+    // }
+    //
+    // let car = new Car('Passat B7', 'Wolkswagen Group', 2011, 190, 1.6)
+    // console.log(car);
+    // // -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} на годину`
+    // car.drive();
+    // // -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
+    // car.info();
+    // // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+    // car.increaseMaxSpeed(20);
+    // console.log(car);
+    // // -- changeYear (newValue) - змінює рік випуску на значення newValue
+    // car.changeYear(2020);
+    // console.log(car);
+    // // -- addDriver (driver) - приймає об'єкт який ""водій"" з довільним набором полів, і додає його в поточний об'єкт car
+    // car.addDriver = ({name: 'Misha', drivingExperience: 7});
+    // console.log(car);
+    //
+    // let arrayCars = [
+    //     new Car('Passat B7', 'Wolkswagen Group', 2011, 190, 1.6),
+    //     new Car('S350', 'Mercedes Bens', 2017, 240, 2.2),
+    //     new Car('Passat B5', 'Wolkswagen Group', 2002, 190, 1.9),
+    //     new Car('Golf 4', 'Wolkswagen Group', 2004, 170, 1, 4),
+    //     new Car('Ford Mondeo', 'Ford Motor Company', 2018, 280, 2.0)
+    // ]
+    // // arrayCars[3].drive();
+    //
+    // for (const car of arrayCars) {
+    //     if (car.graduationYear > 2018) {
+    //         car.drive();
+    //     }
+    // }
+    //
+    // console.log(arrayCars);
+    // // -- drive () - яка виводить в консоль `їдемо зі швидкістю ${максимальна швидкість} на годину`
+    // arrayCars.drive();
+    // // -- info () - яка виводить всю інформацію про автомобіль в форматі `назва поля - значення поля`
+    // arrayCars.info();
+    // // -- increaseMaxSpeed (newSpeed) - яка підвищує значення максимальної швидкості на значення newSpeed
+    // arrayCars.increaseMaxSpeed(20);
+    // console.log(arrayCars);
+    // // -- changeYear (newValue) - змінює рік випуску на значення newValue
+    // arrayCars.changeYear(2020);
+    // console.log(arrayCars);
+    // // -- addDriver (driver) - приймає об'єкт який ""водій"" з довільним набором полів, і додає його в поточний об'єкт car
+    // arrayCars.addDriver = ({name: 'Misha', drivingExperience: 7});
+    // console.log(arrayCars);"
+
+    // "Чому в консолі ми бачимо різні значення однієї функції?
+    // Хоча якщо ми мотаємо через debager то все показує добре
+    // Посилання на фото:
+    //     "
+
+
+    /*// "Виконуючи завдання з сьомої лекції написав код для першого завдання:
+    // 1) - Створити функцію конструктор для об'єктів User з полями id, name, surname , email, phone
+    // створити пустий масив, наповнити його 10 об'єктами new User(....)
+    //
+    // Потім, щоб не копіювати в другому завданні весь код з першого, я підключив до другого завдання додатковий скріпт з першого:
+    //     2) - Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)
+    //
+    // А от на третьому завданні, коли потрібно було також брати масив з попереднього завдання, тобто з другого, то тільки підключивши скріпт з другого завдання, який як би тягне скріпт з першого завдання, мені видавало помилку. Довелось підключати також скріпт ще й з першого завдання...
+    //
+    // Питання: це так і буде тягнутися паровозік з додаванням скріптів, якщо в четвертому (умовно) мені треба буде взяти масив з третього завдання, який тягне скріпт з другого і так далі?... Є можливість якось написати, що бери скріпт з попереднього завдання, який і так тягне код з попередніх? Чи так і треба буде 3, 4, 5, ... 500 скріптів потім підключати?"
+
+
+    // "Питання стосується класів, є два види створення класів, настільки я зрозумів, наприклад function Car і другий class Car,
+    // щоб додати метод до function, я в завданні використав Car.prototype. і сам метод, коли було таке саме завдання з class то я записував методи прямо в class
+    //
+    // ПИТАННЯ коли краще шо обирати бо ментор сказав що підхід вірний але шо не до кінця є розуміння, дякую"
+
+    function Car() {
+        this.drive = function () {};
+    }
+
+
+    Car.prototype.drive = function () {};
+    Array.prototype.asdqwe = function () {
+        console.log('asdqwewqqewasdads');
+    };
+
+    [].asdqwe(); // asdqwewqqewasdads*/
+
+    // Ми проходили тему по фукціях конструкорах і по класах.
+    // Я звісно це все розумію ,але в загальному немає розуміння для чого Вони призначені і де ми їх можемо використати?
+    //
+    // class Client {
+    //     constructor(name, surname, age) {
+    //         if (typeof name === "string") {
+    //             this.name = name;
+    //         }
+    //         this.surname = surname;
+    //         if (age > 0) {
+    //             this.age = age;
+    //         }
+    //     }
+    // }
+    //
+    // let x = new Client('vasya', 'asdqew', 132, ['', '']);
+
+    // function Client(id, name, surname, email, phone, order) {
+    //     this.id = id;
+    //     this.name = name;
+    //     this.surname = surname;
+    //     this.email = email;
+    //     this.phone = phone;
+    //     this.order = order;
+    // }
+
+
+    let client = new Client(1, 'asd', 'qwe', 'asdasd', '12425dsfsdf', {});
+    console.log(client.id);
+    console.log(client.surname);
+    // console.log(client.email);
+
+    // чому видає помилку Unused definition surname, Unused definition email, Unused definition phone?"
+
+    console.log();
+
+    const asdasd = 'asdasd';
+
+
+</script>
+
+</body>
+</html>
