@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+    // Питання.
+    //     Якщо обєкт якому потрібно зробити копію буде багатовимірним то для пошуку функцій нам слід застосовувати рекурсію?"
+
+
+    // let cloneCreating = function (entity) {
+    //     if (entity) {
+    //         let copy = JSON.parse(JSON.stringify(entity));
+    //         for (let key in entity) {
+    //             if (typeof entity[key] === `function`) {
+    //                 copy[key] = entity[key].bind();
+    //             }
+    //         }
+    //         return copy;
+    //     } else {
+    //         console.log(`Сталася якась помилка. Потрібно викликати підмогу`);
+    //     }
+    // }
+
+    // "Доповнення до мого попереднього запитання - чому застосування методів .call та .apply замаість методу .bind ось в цьому місці мого коду (перше завдання 8-ї лекції):
+
+    // copy[item] = entity[item].bind();
+    //
+    // та ось тут в вашому коді:
+    //
+    //     const functionClone = obj[key].bind({});
+    //
+    // викликає функціі, які в батьківському об'єкті, тобто запускає те, що всередині тих функцій написано. А от метод .bind такого не робить..."
+
+
+    // "Як ми знаємо в  set можна додавати об’єкти.
+    // Чи означає це, що за допомогою set можливо об’єднати два різні об’єкти у яких є однакові поля а є і різні поля/характеристики,// для того щоб ʼвитягнути унікальні характеристикиʼ у інший об’єкт.
+    // Мається на увазі задача про глибоку копію об’єкта. Я будував таку логіку:
+
+    // function deepCopy(obj) {
+    //     if (obj) {
+    //         let objClone = {...obj};
+    //         let userJSONCopied = JSON.stringify(obj);
+    //         let userParseCopied = JSON.parse(userJSONCopied);
+    //
+    //         // let set = new Set();
+    //         // for (const objCloneKey in objClone) {
+    //         //     set.add(objCloneKey);
+    //         //
+    //         // }
+    //         // for (const userJSONCopiedKey in userJSONCopied) {
+    //         //     set.add(userJSONCopied);
+    //         // }
+    //
+    //         // const map = new Map();
+    //         // map.set('greeting', {val: () => console.log(), type: typeof obj['key']});
+    //
+    //         return set;
+    //     }
+    // }
+
+    // Хотів за допомогою set вивести тільки унікальні поля об’єкта а ті що дублюються відкинути — і таким чином повернути втрачену через stringify
+    // функцію/функції в об’єкт. Але не вийшло. В set у мене зберіглося просто два об’єкти: один з функцією(до stringify) а інший — без функції — той що після обробки stringify/parse. Так тоді у мене постало питання: що означає що  в  set можна додавати об’єкти? І для чого тоді?"
+
+    // "#AiN5CoUQ
+    // Створити функцію, яка робить глибоку копію об'єкту.
+    // Додати перевірки на undefined, null, NaN.
+    //     Подумати і реалізувати логіку, в якій кінцевий об'єкт буде мати функції,які в нього були до цього моменту.
+
+    // В цій задачі мені незрозумілий момент з використанням bind.
+
+    // От у цьому прикладі що нижче видно що відбувається підміна this через bind,
+    //     і ми викликаємо функцію  greeting яка належить user але викликаємо її для user2 за допомогою bind.
+    //     А у відео по задачі для кого ми викликаємо bind? До пустого об’єкта? Не розумію, поясніть будь-ласка
+    // let user = new User('vasya', 31);
+    // user.greeting = function (msg) {
+    //     return `${msg} my name is ${this.name} `;
+    // };
+    // let user2 = new User('petya', 123123);
+    // let greetingCopy = user.greeting.bind(user2);
+    // console.log(greetingCopy('привіт'));/*привіт my name is petya */"
+
+
+    // function asd() {}
+    //
+    // asd.apply({}); // execute fn
+    //
+    // const copyAsd = asd.bind({});
+    // copyAsd()
+
+    // function cloner(obj) {
+    //     // перевірка об'єкту на пристуність або тру подбіне значення
+    //     if (obj) {
+    //         // це пустий масив, який ми ббудемо наповнювати копіями функцій з нашого об'єкту
+    //         let functions = [];
+    //         // ітреація кдючів об'єкту
+    //         for (const key in obj) {
+    //             // перевірка беремо з об'єкта якусь характеристику і перевіряємо чи це функція
+    //             if (typeof obj[key] === 'function') {
+    //                 // якщо так, то робимо копію цієї функції
+    //                 const functionClone = obj[key].bind({});
+    //                 // наповнюємо масив об'єкто який складається з копії фн + назви ключа цієї функції
+    //                 functions.push({functionClone, key});
+    //             }
+    //         }
+    //         // глибоку копію об'єкту яка прибирає функції
+    //         const cloneObj = JSON.parse(JSON.stringify(obj));
+    //         // беремо масив з 102 рядка з копіями функцій (вони в об'єкіті лежать) і ітеруємо його
+    //         // дістаємо кожен об'єкт (в якому лежить сама функція + її назва) з масиву
+    //         for (const func of functions) {
+    //             // звертаємось до клонованого об'єкту (без функцій) і динамічно додаємо йому нову характеристику
+    //             // яка зветься так само , як і перворідна функція.........
+    //             // а як знаечння цієї характеристики визначаемо функцію з цього ж ітеруємого об'єкту
+    //             cloneObj[func.key] = func.functionClone;
+    //         }
+    //
+    //         console.log(cloneObj);
+    //         return cloneObj
+    //
+    //     }
+    //
+    //     throw new Error('!!!!!');
+    //
+    // }
+    //
+    // const clone = cloner({id: 123, name: 'asdsad', greeting() {console.log('hello')}, foo() {console.log('bar')}});
+    // clone.foo();
+
+
+    // Моє питання стосується другого завдання з індифікатором #iz6emEsP2BA.
+    // В відео Array callback function(16 минута) ви показували точно такий же приклад тільки записаний
+    // const courceAddid = coursesAndDurationArray.map((course, index) => ({id: index + 1, ...course}));
+    // ,а в завданні запісь така
+    // const courceAddid = coursesAndDurationArray.map((course, index) => ({...course, id: index + 1}))
+    // Можно коротко про такий запис.Мені зрозуміло тільки одне не потрібно писати return.
+
+
+    // при виконання завдання 1 з дз 8 мала спробу реалізувати функцію в такий спосіб,
+    // спочатку скопіювати все за допоги JSON,
+    // потім створити копію Object.assign,
+    // перевірити кожен елемент чи є формулою,
+    // а потім обєднати Object.assign з JSON, але не вийшо,
+    // отримала в консолі інформацію що не можу ітерувати Object.assign, я щось не так зробила, чи це нее можливо?
+
+    // let user = {
+    //     name: 'vasya',
+    //     skills: ['html', 'js'],
+    //     greeting: function () {
+    //     }
+    // }
+    //
+    //
+    // let assign = Object.assign({}, user);
+    // console.log(assign);
+    // console.log(assign === user);
+    // console.log(assign.skills === user.skills);
+
+    // В цьому завданні я робила все майже так само, як робили в розборі дз(робила копію
+    // через JSON),
+    // потім вирішила перевірити чи все вийшло через originObject===copyObject
+    // саме в цьому варіанті воно написало false, але коли написала originObject.name===copyObject.name,
+    // видало true((теж саме вийшло і з кодом в розв'язку завдання).
+    // Але ж наче JSON копія повинна робити повністю інший об'єкт. Тож питання : чому воно зробило поверхневу копію?"
+    // console.log('asd' === 'asd');
+</script>
+
+</body>
+</html>
