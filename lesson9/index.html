@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap {
+            background: yellowgreen;
+            color: slategrey;
+            font-weight: 400;
+            width: 300px;
+            height: 300px;
+        }
+
+        .collapse {
+            background: bisque;
+            color: slategrey;
+            width: 300px;
+            height: 300px;
+        }
+
+        .alpha {
+            background: darkkhaki;
+            color: slategrey;
+            width: 300px;
+            height: 300px;
+        }
+
+        .beta {
+            background: cornflowerblue;
+            color: slategrey;
+            width: 300px;
+            height: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<script>
+    // // "В першому завданні з 9-ї лекції потрабно було клонувати наш блок div з усім його наповнення класами, стилями і т.д. Була використана функція (на лекціях нібито не бачив такого):
+    //
+    // // let div1 = div.cloneNode(true);
+    // /*
+    // let div1 = div.cloneNode(false);
+    // let div1 = div.cloneNode();
+    // */
+    //
+    // // Те, що з true воно клонує ще й наповнення, а не тільки обгортку, то вже зрозуміло (протестив). Питання, які відмінності в наповненні в дужках - (true), (false), (та просто пусті дужки)?"
+
+    // "Чому у цьому завданні (ваше вирішення) не стаєтся помилка:
+    //
+    // let menu = {};
+    //
+    // for (const item of arr) {
+    //     const li = document.createElement('li');
+    //     li.innerText = item;
+    //     menu.appendChild(li);
+    // }
+    //
+    // Там же іде кожного разу створення const li, що не припустимо, але помилку не видає..."
+
+
+    // "#iz6emEsP2BA
+    // за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration
+    //     Зробити все ВИКЛЮЧНО за допомоги інлайн конструкції
+
+    /*інлайн конструкція*/
+    // let mapedCoursesAndDurationArray = coursesAndDurationArray.map((value, index) => ({...value, id: index + 1}));
+
+    /*не інлайн конструкція*/
+
+    // let mapedCoursesAndDurationArray = [].map((value, index) => ({...value, id: index + 1}));
+
+    // "Привіт, моє запитання полягає в домашньому завданні :
+    // #8Nmt60ZT
+    // - створити блок,
+    //     - додати йому класи wrap, collapse, alpha, beta
+    // - додати стилі(довільні значення) : колір фону, колір тексту, розмір тексту
+    // - додати цей блок в body.
+    // - клонувати його повністю, та додати клон в body.
+    //
+    //     Точніше я з ним розібрався але є один момент.
+    //     Я завдання переробив повністю, залишив тільки назви класів.
+    //     Я створював єлементи через createElement і querySelector.
+    //     Чому через querySelector я можу код прописати в один рядок і через крапку додати innerText
+    //     а через createElement у мене не вийшло? Я намагався гратися але нічого не вийшло, хотів зробити свій код меншим. Дякую!
+    //     "
+
+    // const asd = document.createElement('div');
+    // asd.innerText = 'asdadsda';
+    //
+    // document.body.appendChild(asd);
+    //
+    // document.querySelector('div#xxx').innerHTML = 'asjdgajgdshgdsa';
+    // document.querySelector('div#xxx');
+    // document.querySelector('div#xxx');
+    // document.querySelector('div#xxx');
+
+
+    // чому так функція інфо працює як треба
+
+    function Car(model, manufacturer, yearOfManufacture, maxSpeed, engine) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        this.yearOfManufacture = yearOfManufacture;
+        this.maxSpeed = maxSpeed;
+        this.engine = engine;
+
+        this.drive = function () {
+            console.log(`їдемо зі швидкістю  ${maxSpeed}на годину`);
+        }
+
+        this.info = function () {
+            let info = "";
+            for (const key in this) {
+                if (typeof this[key] !== 'function') {
+
+                    info += key + " " + this[key] + " "; // driver [object Object]
+
+                }
+
+            }
+            return info;
+        }
+
+        this.increaseMaxSpeed = function (newSpeed) {
+            this.maxSpeed += newSpeed;
+        }
+        this.changeYear = function (newValue) {
+            this.yearOfManufacture = newValue;
+        }
+
+        this.addDriver = function (driverObj) {
+            this.driver = driverObj;
+        }
+    }
+
+
+    // просто якщо створити об'єкт, і подивитись на тип функції драйв то вона буде функцією.
+    // чому тоді не виходить другий варіант? + далі ще питання в коментарі щодо кар інфо і драйвера
+
+    // this.info = function (){
+    //     let info = "";
+    //     for (const key in this) {
+    //         if ( typeof key !=='function'){
+    //             info+= key + " " + this[key] + " ";
+    //         }
+    //
+    //     }
+
+
+    let driver = {
+        name: "Jon", years: 19
+    }
+    let car = new Car("mm", "hjhj", 9090, 9, 0);
+    console.log(car);
+    console.log(car.info());
+    console.log(typeof car.drive);
+    car.changeYear(0);
+    car.increaseMaxSpeed(1000000000);
+    console.log(car.info());
+    car.addDriver(driver);
+    // і як зробити щоб нормально показувало?
+    // чому тут driver [object Object] , а не показує ключі і значення, чи просто хоча б не пише driver oblject, звідки масив ?
+    console.log(car.info());
+    console.log(car);
+
+    // document.write({
+    //     toString() {
+    //         return '[xxx]';
+    //     }
+    // });
+
+
+    // дз здані після дедлайну не перевіряються.
+    // джіпіті можна тоді для цього використовувати і який промт краще дати?
+    // ну просто у нас з вашими розв'язками може код розходитись,
+    // але якщо робить здається те ж саме, ти не дізнаєшся чи ТОЧНО ти правильно написав?
+
+    // "Виконуючи додаткове завдання additional з дев'ятої лекції зтикнувся з таким:
+    //
+    // Чому ось цей рядок коду divFilling.append(ul); (в коді в ітерації закоментовано)
+    // може бути написано як і за межами ітерації, так і в середині ітерації, а також в обох місцях одночасно.
+    // При цьому в div додається в усіх випадках лише один раз ul, хоча за логікою воно мусило б під час знаходження всередині ітерації додаватися до div стільки ж разів, скільки воно бігає там і пише нам ключі об'єкту (воно ж всередині і кожного разу виконується, за логікою...). Після коду ще одне питання напишу (щоб не пропустили). Ось код (масив ваший):
+
+    // let coursesArray = [
+    //     {
+    //         title: 'JavaScript Complex',
+    //         monthDuration: 5,
+    //         hourDuration: 909,
+    //         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    //     },
+    //     {
+    //         title: 'Java Complex',
+    //         monthDuration: 6,
+    //         hourDuration: 909,
+    //         modules: ['html',
+    //             'css',
+    //             'js',
+    //             'mysql',
+    //             'mongodb',
+    //             'angular',
+    //             'aws',
+    //             'docker',
+    //             'git',
+    //             'java core',
+    //             'java advanced']
+    //     },
+    //     {
+    //         title: 'Python Complex',
+    //         monthDuration: 6,
+    //         hourDuration: 909,
+    //         modules: ['html',
+    //             'css',
+    //             'js',
+    //             'mysql',
+    //             'mongodb',
+    //             'angular',
+    //             'aws',
+    //             'docker',
+    //             'python core',
+    //             'python advanced']
+    //     },
+    //     {
+    //         title: 'QA Complex',
+    //         monthDuration: 4,
+    //         hourDuration: 909,
+    //         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    //     },
+    //     {
+    //         title: 'FullStack',
+    //         monthDuration: 7,
+    //         hourDuration: 909,
+    //         modules: ['html',
+    //             'css',
+    //             'js',
+    //             'mysql',
+    //             'mongodb',
+    //             'react',
+    //             'angular',
+    //             'aws',
+    //             'docker',
+    //             'git',
+    //             'node.js',
+    //             'python',
+    //             'java']
+    //     },
+    //     {
+    //         title: 'Frontend',
+    //         monthDuration: 4,
+    //         hourDuration: 909,
+    //         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    //     }
+    // ];
+    //
+    // let div, divFilling, ul, li;
+    //
+    // for (let item of coursesArray) {
+    //     divFilling = document.createElement(`div`);
+    //     document.body.appendChild(divFilling);
+    //     for (let key in item) {
+    //         if (typeof item[key] === `object`) {
+    //             ul = document.createElement(`ul`);
+    //             divFilling.append(ul);
+    //             for (let i of item[key]) {
+    //                 li = document.createElement(`li`);
+    //                 li.innerText = i;
+    //                 ul.append(li);
+    //                 divFilling.append(ul);
+    //             }
+    //         } else {
+    //             div = document.createElement(`div`);
+    //             div.innerText = item[key];
+    //             divFilling.append(div);
+    //         }
+    //     }
+    // }
+
+    // Та ще одне питання - вже голову зламав, як його поставити div з monthDuration всередині та div з hourDuration всередині обидва в один рядок. Тобто display: inline-block; а як до нього звернутися?"
+
+
+    // const h2 = document.createElement('h2');
+    // h2.innerHTML = 'sadhfasdgfash';
+    // document.body.append(h2);
+    // document.body.append(h2);
+    // document.body.append(h2);
+
+    // // Коли до класів задаю різний background то показується background тільки останнього класу  , чи там ще якісь команди використовувати потрібною? чи можливо ми ще це не проходили це? можливо щось не те роблю.
+    //
+    //
+    // let div = document.createElement('div');
+    // div.classList.add('wrap');
+    // div.classList.add('collapse');
+    // div.classList.add('alpha');
+    // div.classList.add('beta');
+    // div.innerText = 'Hello!';
+    //
+    // document.body.append(div);
+    // let cloneNode = div.cloneNode(true);
+    // document.body.cloneNode(true);
+    //
+    //
+    // // "Тема цілком зрозуміла. Під час виконнання виникло одне єдине питання.
+    //
+    // //     Ви в розборі записували так:
+    //
+    // div.classList.add('wrap');
+    // div.classList.add('collapse');
+    // div.classList.add('alpha');
+    // div.classList.add('beta');
+    //
+    // // Я
+    // // записав
+    // // так:
+    //     div.classList.add('wrap', 'collapse', 'alpha', 'beta');
+    //
+    // // Воноспрацювало, алечивірнотакзаписувати ? "
+
+
+    // "В першому завданні, де потрібно додати стилі : колір фону,
+    // колір тексту, розмір тексту, я робила через div.style.background і т.д.
+    // А у розборі домашнього Ви проговорювали, що ці стилі прописати у <style></style> у доданих класах. То який спосіб кращий?
+    // "
+
+    // div.classList.add('changeStyles');
+
+</script>
+
+</body>
+</html>
