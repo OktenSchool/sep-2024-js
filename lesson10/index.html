@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form class="verification">
+    <label for="age">Введіть свій вік</label>
+    <input type="number" name="age" id="age" placeholder="enter your age" required> <sup>*</sup>
+</form>
+<button>Enter</button>
+
+<script>
+
+    // "1. якщо параграф - константа, тоді чому можна змінити текст? чи як вони працюють?   for (key in value){
+    // const p = document.createElement('p');
+    // p.innerText = key + " " + value[key];
+    // console.log(p.innerText);
+    // div.appendChild(p);
+    // p.innerText= "677 88;
+    // }
+
+    //2.   //беремо масив з юзерами і хочемо зробити так щоб всі зі статусом тру були зверху.
+    // але чому виходить навпаки? якщо фолс це нічого, то воно повинно бути меншим ніж тру і відповідно йти вниз. чи воно по кількості букв порівнює чи по чому? бо виходить так що тут зверху в нас будуть всі зі статусом фолс
+    // const asd = {};
+    // asd.qweqweqwe = 'sadasdsa';
+
+    // let users = [
+    //     {name: 'vasya', age: 31, status: false},
+    //     {name: 'petya', age: 30, status: true},
+    //     {name: 'kolya', age: 29, status: true},
+    //     {name: 'olya', age: 28, status: false},
+    //     {name: 'max', age: 30, status: true},
+    //     {name: 'anya', age: 31, status: false},
+    //     {name: 'oleg', age: 28, status: false},
+    //     {name: 'andrey', age: 29, status: true},
+    //     {name: 'masha', age: 30, status: true},
+    //     {name: 'olya', age: 31, status: false},
+    //     {name: 'max', age: 31, status: true}
+    // ];
+    // const sort = users.sort((a, b) => {
+    //     if (a.status > b.status) return -1;
+    //     if (a.status < b.status) return 1;
+    //     if (a.status === b.status) return 0;
+    // });
+    //
+    // console.log(sort);
+    //
+    // а тут якщо вивести то все як треба
+    // users.sort((a, b) => {
+    //     if (b.status > a.status) return 1;
+    //     if (b.status < a.status) return -1;
+    //     else return 0;
+    // })
+    // console.log(users);
+
+
+    // "Чому ці всі три способи перетворення стрінги в число повертают нам в консоль різні значення - 0, null та NaN відповідно:
+    //
+    // let a = +localStorage.getItem(`number`);
+    // const item = localStorage.getItem(`number`);
+    // console.log(item);
+    // let b = JSON.parse(item); // null
+    // let c = parseInt(localStorage.getItem(`number`));
+    // console.log(a, b, c);
+    //
+    // Чи це просто треба прийняти як аксіому та використовувати в майбутньому у відповідній (більш підходящій для цього) ситуації?"
+
+
+    // // "Як система вибирає, що треба присвоїти в значення:
+    // // 1) В цьому варіанті віддає перевагу масиву ([]), а не null, що утвориться при обчисленні першої половини рядка:
+    //
+    // let sessionsList = JSON.parse(localStorage.getItem('sessionsList')) || [];
+    // console.log(JSON.parse(localStorage.getItem('sessionsList')));
+    // console.log(sessionsList);
+    //
+    // // 2) А от тут вже віддасть перевагу першій половині рядка (замість числа може бути стрінга):
+    //
+    // let sessionsList = 5 || [];
+    // console.log(sessionsList);
+    //
+    // // Воно вибирає якось по вазі, що треба присвоїти в значення? Якщо так, то яка схема?"
+
+
+    // "чи можна вважати такий запис нормальним, чи це вкрай погано так писати?
+    //
+    // Ви казали не використовувати стрілки в подіях, але тут this не має тож чи не буде такий запис як помилка?
+    // let button = {};
+    // let input = {};
+    // let p = {};
+    //
+    // button.onclick = () => {
+    //     const age = +input.value;
+    //     p.textContent = (age && age > 0) ? (age < 18 ? 'Too young!' : 'You’re definitely 18!') : 'Please enter a valid number!';
+    // };
+
+
+    // мої питання на гітхабі homework 10 (буду без світла, з телефону, писатиму в головний чат телеграм якщо що)
+
+    // const p = document.createElement('p');/*створив ел-нт параграф*/
+    // p.setAttribute('id', 'text');/*створив до ел-ту параграф id "text"*/
+    // p.innerText = 'hello';/*впровадив безпосередньо текст в параграф*/
+    // document.body.appendChild(p);
+    //
+    // let button = document.createElement('button');/*створив кнопку*/
+    // document.body.appendChild(button);
+    // button.onclick = function () {
+    //     p.style.display = 'none';
+    // };
+
+    // /*ВИДАЄ ПОМИЛКУ - js:11 Uncaught SyntaxError: Unexpected token 'else', ЧОМУ? адже така конструкція як if - else if - else - існує..*/
+    // /*ЩОСЬ ТУТ В ЛОГІЦІ МАБУТЬ НЕВІРНО?*/
+    //
+    //
+    // const form = document.forms[0];
+    // form.onsubmit = function (e) {
+    //     e.preventDefault();
+    // }
+    //
+    // let button = document.getElementsByTagName('button')[0];
+    // // let input = document.getElementById('age');
+    // let input = form.age;
+    // button.onclick = function (event) {
+    //     localStorage.setItem('age', input.value);
+    //     let userAge = +localStorage.getItem('age');
+    //     console.log(typeof userAge);
+    //     if (typeof userAge === 'number' && userAge >= 18) {
+    //         console.log('Вхід дозволено')
+    //     } else if (typeof userAge === 'number' && userAge < 18) {
+    //         console.log('Вхід заборонено')
+    //     } else {
+    //         console.log('Потрібно ввести число від 0 до 100')
+    //     }
+    // }
+
+    // let coursesArray = [{
+    //     title: 'FullStack',
+    //     monthDuration: 7,
+    //     hourDuration: 909,
+    //     modules: ['html',
+    //         'css',
+    //         'js',
+    //         'mysql',
+    //         'mongodb',
+    //         'react',
+    //         'angular',
+    //         'aws',
+    //         'docker',
+    //         'git',
+    //         'node.js',
+    //         'python',
+    //         'java'],
+    // }
+    // ];
+    //
+    // for (let course of coursesArray) {
+    //     const div = document.createElement('div');
+    //     div.classList.add('full-stack');
+    //
+    //     const title = document.createElement('h2');
+    //     title.innerText = course.title;
+    //     div.appendChild(title);
+    //
+    //     const monthDuration = document.createElement('p');
+    //     monthDuration.innerText = course.monthDuration + ' ' + course.hourDuration;
+    //     div.appendChild(monthDuration);
+    //
+    //     const modulesList = document.createElement('ul');
+    //     for (let modules of course.modules) {
+    //         const li = document.createElement('li');
+    //         li.innerText = modules;
+    //         modulesList.appendChild(li);
+    //     }
+    //
+    //     div.appendChild(modulesList);
+    //     document.body.appendChild(div);
+    //
+    // }
+
+
+    // "1. Питання по 1-му завданні.
+    // В даному завданні в html-файлі створила форму з textarea для коментаря і кнопку ""Надіслати"".
+    // В даному випадку при натисканні на кнопку поле для коментарів не зникало.
+    // Замінила форму на div і все спрацювало (зробила цю обгортку, щоб розмістити textarea і button один під одним).
+    // Чому не спрацювало з формою? Це тому, що відбувається надсилання даних і оновлюється сторінка?
+    //
+    // 2.В завданні з конвертером я спочатку пробувала зробити 2 інпути для кг і фунтів
+    // (типу вигляд схожий як онлайн-конвертер).
+    // Але результат чомусь не передавався в інпут з фунтами. Замінила на дів.
+    // Хочу зрозуміти чому. І як це працює на сайтах?"
+
+</script>
+
+</body>
+</html>

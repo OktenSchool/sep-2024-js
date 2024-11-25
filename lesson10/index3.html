@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="arrayEnter"></div>
+<button id="prev">prev</button>
+<button id="next">next</button>
+<script>
+    // #NKB0tgWIK1G
+    // ***PAGINATION
+    // зробити масив на 100 об'єктів та дві кнопки prev next
+    // при завантажені сторінки з'являються перші 10 об'єктів.
+    //     При натисканні next виводяться наступні 10 об'єктів
+    // При натисканні prev виводяться попередні 10 об'єктів
+    let arrayEnter = document.getElementById('arrayEnter');
+    let prev = document.getElementById('prev');
+    let next = document.getElementById('next');
+
+    let arr = []
+    for (let i = 0; i < 100; i++) {
+        arr.push({id: i + 1, name: 'vasia' + (i + 1)});
+    }
+
+
+    let counter = 0;
+    let limit = 10;
+    next.addEventListener('click', function () {
+        arrayEnter.innerHTML = '';
+        for (let i = counter; i < limit; i++) {
+            const p = document.createElement('p');
+            p.innerText = arr[i].name;
+            arrayEnter.appendChild(p);
+        }
+        counter += 10;
+        limit += 10;
+    });
+
+</script>
+</body>
+</html>

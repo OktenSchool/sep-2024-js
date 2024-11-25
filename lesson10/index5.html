@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jg0gPO00</title>
+</head>
+<body>
+<input id="kg" type="number" name="weight" placeholder="Вага, кг">
+<input id="lb">
+<script>
+    // створити конвертор ваги з кг в фунти. данні заповнюються через інпут. При введенні даних обрахунок стається миттєво, без натискань додаткових кнопок
+
+    let kgWeight = document.getElementById('kg');
+    console.log(kgWeight);
+
+    let lbWeight = document.getElementById('lb');
+
+    kgWeight.oninput = function () {
+        let kg = +this.value;
+        lbWeight.value = kg * 2.2046226218487757;
+    }
+</script>
+</body>
+</html>

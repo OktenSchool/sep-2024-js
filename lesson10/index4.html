@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sH8c4er</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+
+    <textarea id="text" name="comment" rows="10" cols="50" placeholder="Додайте коментар до Вашого замовлення"></textarea>
+    <button>Надіслати</button>
+</div>
+<script>
+    // Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".
+    let button = document.querySelector('button');
+    let text = document.getElementById('text');
+    button.onclick = function () {
+        text.remove();
+    }
+</script>
+
+</body>
+</html>
