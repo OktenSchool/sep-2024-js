@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--Не можу зрозуміти чому в мене цей код не працює, не можу знайти помилку-->
+
+<!--#RbQGnH5DuC-->
+
+<!--// В localStorage зберігаються масиви.-->
+<!--// Вам потрібно зробити функцію, які дістає потрібний вам масив з localStorage та додає в нього об'єкт-->
+<!--// сигнатура функції - -->
+<!--// addToLocalStorage(arrayName:string,objToAdd:any{}):void-->
+<script>
+
+    function addToLocalStorage(arrayName, objToAdd) {
+        const lsItem = localStorage.getItem(arrayName) || '[]';
+        const array = JSON.parse(lsItem);
+        console.log(array);
+        if (typeof objToAdd === 'object') {
+            array.push(objToAdd);
+        }
+
+        localStorage.setItem(arrayName, JSON.stringify(array));
+    }
+
+    addToLocalStorage('sessionsList', {});
+
+</script>
+</body>
+</html>

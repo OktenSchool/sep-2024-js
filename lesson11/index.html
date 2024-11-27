@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="target">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+</div>
+<script>
+    // Хочу уточнити, як краще виводити контент використовувати innerHtml чи потрібно через document.createElement і кожний елемент так робити?
+
+
+    // У завданні #Jg0gPO00 (Homework10.6.js — на моєму гітхаб) про конвертор, у цій стрічці коду -  div.innerText = +input.value * 2.2046;
+    // відбувається підсвічування помилки Assigned expression type number is not assignable to type string (Присвоєний номер типу виразу не може бути присвоєний типу string). Але при цьому конвертор працює вірно.
+    // Якщо ж прописати так: div.innerText = str(+input.value * 2.2046);
+    // то вже підсвічуватись помилка не буде, але конвертор не буде працювати. То виходить що правильне вирішення цього завдання — це залишити цю підсвічену у коді помилку(при варіанті розв’язку div.innerText = +input.value * 2.2046;)? У відеорозв’язку цього завдання я також побачив що ця помилка підсвічується, а у конверторі виводиться уже стрінга(бо чорним кольором), тобто все-таки конвертація у стрінгу відбулася автоматично. ПИТАННЯ: то чому ж програма сварилася на цей момент, якщо потім відбувається автоматична конвертація у тип string?
+
+    // document.body.innerHTML = `<!--<div>hello</div>-->`;
+    // const div = document.createElement('div');
+    // div.innerText = 'hello';
+    //
+    //
+    // document.onclick = function () {
+    //     // const div = document.getElementsByTagName('div')[0];
+    //     div.innerText = 'hello2';
+    // };
+
+
+    // const target = document.getElementById('target');
+    // ///......
+    //
+    // // const ul = document.getElementsByTagName('ul')[0];
+    //
+    // const ul = target.getElementsByTagName('ul')[0];
+
+
+    // У відео про API був показаний візуалізований масив cars,
+    // у кожному рядку елементу масиву було по кнопці Update i Delete.
+    // Функція onClick для кожної з цих кнопок буде одна на весь масив?
+    // Як можна зв'язати id елементу масиву і кнопку у рядку? Через Event.target.якась-властивість=id-елементу-масиву?
+
+
+    let users = [
+        {name: 'vasya', age: 31, status: false},
+        {name: 'petya', age: 30, status: true},
+        {name: 'kolya', age: 29, status: true},
+        {name: 'olya', age: 28, status: false},
+        {name: 'max', age: 30, status: true},
+        {name: 'anya', age: 31, status: false},
+        {name: 'oleg', age: 28, status: false},
+        {name: 'andrey', age: 29, status: true},
+        {name: 'masha', age: 30, status: true},
+        {name: 'olya', age: 31, status: false},
+        {name: 'max', age: 31, status: true}
+    ];
+
+    for (const user of users) {
+        const div = document.createElement('div');
+        div.innerText = user.name;
+        const buttonElement = document.createElement('button');
+        buttonElement.innerText = 'click';
+        buttonElement.addEventListener('click', () => {
+            console.log(user.name);
+        });
+        div.appendChild(buttonElement);
+        document.body.appendChild(div);
+    }
+
+</script>
+<script>
+    // console.log(ul);
+</script>
+</body>
+</html>

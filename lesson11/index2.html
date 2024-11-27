@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div">
+
+</div>
+<button id="btn">скинути</button>
+<script>
+    // питання в коментарі в завданні під назвою task.( така сама проблема була в bq1zkx7WP, якщо із іфу прибрати  span.innerText = price;)
+    // але ж в обох варіантах ми спершу і встановлюємо значення іннер тексту яке дорівнює значенню із локал стореджу, то чому встановлюється не воно, а на 1 менше коли перезавантажуємо кілька разів?  чи відбувається так що при першому завантаженні сторінки виконується звичайний код, а при перезавантеженні звичайний код( маю на увазі не в функції яка за перезавантеження відповідає)  не виконується? якщо не розумієте про що кажу, то закоментуйте і розкоментуйте рядок біля якого запитання у файлику task і подивіться на сторінку і локал сторедж, просто відсутня буду
+
+    // #2VaLt4vDczH
+    // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+    let div = document.getElementById("div");
+    if (localStorage.getItem("loads")) {
+        div.innerText = localStorage.getItem("loads");
+    } else {
+        localStorage.setItem("loads", "0");
+        div.innerText = 0;
+    }
+
+
+    document.onreadystatechange = function () {
+        {
+            if (document.readyState === "complete") {
+                let loads = parseInt(localStorage.getItem("loads")) + 1;
+                localStorage.setItem("loads", loads);
+                div.innerText = localStorage.getItem("loads");
+                // якщо цей рядок прибрати, скинути до 0, перезавантажити кілька разів, то число на сторінці буде на 1 менше ніж в локал сторедж, чому?
+            }
+
+        }
+    }
+    let btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+        localStorage.setItem("loads", "0");
+        div.innerText = localStorage.getItem("loads")
+    }
+
+</script>
+</body>
+</html>
