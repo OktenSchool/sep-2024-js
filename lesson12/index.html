@@ -1,0 +1,63 @@
+<!--При завантаженні вікна браузера одразу відображаються перші 10 елементів, як і має бути згідно умови завдання.
+Якщо натиснути кнопку next - то з’являться наступні 10 елементів, і так щоразу при її натисканні послідовно з’являються наступні 10 елементів.
+Якщо ж натиснути кнопку prev — то з’являться наступні 10 елементів замість попередніх 10 елементів, але якщо натиснути ще раз кнопку prev — то вже з’являться попередні 10 елементів, і відтепер при кожному натисканні кнопки prev — будуть з’являтися попередні 10 елементів. Але якщо тепер після prev натиснути next — то всеодно з’являться 10 попередніх елементів, і тільки при наступному повторному натисканні next — з’являться наступні 10 елементів. І при подальшому натисканні next — будуть з’являтися наступні 10 елементів. Отже збій стається в момент коли ми після натискання prev натискаємо next(всеодно бачимо 10 попередніх елементів), і навпаки коли після next натискаємо  prev — бачимо всеодно 10 наступних елементів. А потім все працює як потрібно, якщо ми продовжуємо натискати послідовно prev або next. Де тут помилка в коді?-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework10.10</title>
+</head>
+<body>
+<div id="divEnter"></div>
+<button id="prev">prev</button>
+<button id="next">next</button>
+
+<script>
+    let divEnter = document.getElementById('divEnter');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    let arr = []
+
+    for (let i = 0; i < 100; i++) {
+        arr.push({id: i + 1, name: 'olya' + (i + 1)});
+    }
+
+    let counter = 0;
+    let limit = 10;
+
+    for (let i = counter; i < limit; i++) {
+        const p = document.createElement('p');
+        p.innerText = arr[i].name;
+        divEnter.appendChild(p);
+    }
+
+    next.addEventListener('click', () => {
+        divEnter.innerText = '';
+        counter += 10;
+        limit += 10;
+        for (let i = counter; i < limit; i++) {
+            const p = document.createElement('p');
+            p.innerText = arr[i].name;
+            divEnter.appendChild(p);
+        }
+    })
+
+    prev.addEventListener('click', () => {
+        divEnter.innerText = '';
+        for (let i = counter; i < limit; i++) {
+            const p = document.createElement('p');
+            p.innerText = arr[i].name;
+            divEnter.appendChild(p);
+        }
+        counter -= 10;
+        limit -= 10;
+    });
+</script>
+</body>
+</html>
+<!--#NKB0tgWIK1G-->
+<!--***PAGINATION-->
+<!--зробити масив на 100 об'єктів та дві кнопки prev next-->
+<!--при завантажені сторінки з'являються перші 10 об'єктів.-->
+<!--При натисканні next виводяться наступні 10 об'єктів-->
+<!--При натисканні prev виводяться попередні 10 об'єктів-->
